@@ -1,0 +1,8 @@
+<h2>Shout from <%= @shout.user_email %></h2>
+<div>
+  <strong><%= @shout.body %></strong>
+  <small><%= time_ago_in_words(@shout.created_at) %> ago</small>
+</div>
+<div>
+  <%= link_to "Dashboard", dashboard_path %>
+</div>
