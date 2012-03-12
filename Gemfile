@@ -27,6 +27,7 @@ gem 'paperclip'
 group :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'bourne'
 end
 
 # To use ActiveModel has_secure_password
