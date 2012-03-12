@@ -1,4 +1,5 @@
 Shouter::Application.routes.draw do
-  resource :dashboard
+  resource :dashboard, only: [:show]
+  resources :shouts, only: [:create]
   root to: "welcome#index"
 end
