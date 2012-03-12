@@ -22,6 +22,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'paperclip'
 
 group :test do
   gem 'rspec-rails'

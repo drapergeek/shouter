@@ -16,9 +16,6 @@ class MoveBodyFromShoutsToTextShouts < ActiveRecord::Migration
     remove_column :shouts, :body
   end
 
-  def down
-    add_column :shouts, :body, :text
-    select_all("SELECT id, body FROM text_shouts").each do |text_shout|
       update <<-SQL
         UPDATE shouts
         SET body="#{text_shout["body"]}"
