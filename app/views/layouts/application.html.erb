@@ -7,10 +7,31 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <%= link_to "Shouter",root_url, :class=>"brand" %>
+          <div class="nav-collapse">
+            <ul class="nav">
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="content">
-      <% flash.each do |key, value| -%>
-        <div class="flash <%= key %>"><%= value %></div>
-      <% end -%>
+      <% flash.each do |name, msg| %>
+        <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+          <a class="close" data-dismiss="alert">×</a>
+          <%= msg %>
+        </div>
+      <% end %>
+
 
       <%= yield %>
     </div>

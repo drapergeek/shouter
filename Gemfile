@@ -14,6 +14,7 @@ end
 
 gem 'jquery-rails'
 gem 'paperclip'
+gem "twitter-bootstrap-rails"
 
 group :test do
   gem 'rspec-rails'

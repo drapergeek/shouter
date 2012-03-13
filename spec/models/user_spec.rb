@@ -9,4 +9,11 @@ describe User do
     shout.persisted?.should == true
     text_shout.persisted?.should == true
   end
+
+  it "can #follow other users" do
+    follower = create(:user)
+    followed_user = create(:user)
+    follower.follow(followed_user)
+    follower.followed_users.should == [followed_user]
+  end
 end
