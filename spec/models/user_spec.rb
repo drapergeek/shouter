@@ -16,4 +16,24 @@ describe User do
     follower.follow(followed_user)
     follower.followed_users.should == [followed_user]
   end
+
+  it "knows if it #can_follow? a user" do
+    follower = create(:user)
+    followed_user = create(:user)
+    unfollowed_user = create(:user)
+    follower.follow(followed_user)
+    follower.can_follow?(follower).should be_false
+    follower.can_follow?(followed_user).should be_false
+    follower.can_follow?(unfollowed_user).should be_true
+  end
+
+  it "knows if it #can_unfollow? a user" do
+    follower = create(:user)
+    followed_user = create(:user)
+    unfollowed_user = create(:user)
+    follower.follow(followed_user)
+    follower.can_unfollow?(follower).should be_false
+    follower.can_unfollow?(followed_user).should be_true
+    follower.can_unfollow?(unfollowed_user).should be_false
+  end
 end
