@@ -1,3 +1,6 @@
-<%= content_tag_for(:div, shout) do %>
-  <%= render shout.medium %>
+<%= content_tag_for(:li, shout) do %>
+
+  <div><%= render shout.medium %></div>
+  <div><%= link_to shout.user.email, shout.user %> <%= time_ago_in_words(shout.created_at) %></div>
+
 <% end %>

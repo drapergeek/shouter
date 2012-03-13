@@ -9,4 +9,9 @@ FactoryGirl.define do
     shout
   end
 
+  factory :photo_shout do
+    photo_file_name "blue.jpg"
+    shout
+  end
+
 end

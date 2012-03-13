@@ -6,6 +6,7 @@ Shouter::Application.routes.draw do
   resources :users, only: [:show] do
     resources :following_relationships, only: [:create]
   end
+  resource :search, only: [:show]
 
   root to: "welcome#index"
 end

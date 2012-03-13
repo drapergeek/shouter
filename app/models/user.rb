@@ -9,6 +9,15 @@ class User < ActiveRecord::Base
   has_many :followers, through: :following_user_relationships, source: :following_user
 
 
+  def shout_feed_for_self_and_followed_users
+    ShoutFeed.new(self_and_followed_user_ids)
+  end
+
+  def shout_feed
+    ShoutFeed.new(id)
+  end
+
+
   def create_shout(medium)
     new_shout = shouts.create(medium: medium)
   end
@@ -27,6 +36,6 @@ class User < ActiveRecord::Base
 
   private
   def self_and_followed_user_ids
-    [id] + followed_user_ids 
+    [id] + followed_user_ids
   end
 end
